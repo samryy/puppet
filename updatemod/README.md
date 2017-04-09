@@ -3,8 +3,13 @@
 
 ## Prerequisites
 
-I started by this weeks homework assignements by creating a new repository called "Puppet". In this repository I will have two folders,one for notes (e.g. homeworks and other necessary notes) and an other
-folder puppet modules. 
+I started by this weeks homework assignements by creating a new repository called "Puppet". In this repository I will have two folders,one for notes
+(e.g. homeworks and other necessary notes) and an other for folder puppet modules.
+
+## UPDATE
+
+All homework assignments are from now on in seperate folders. Each folder contains the assignment and the Puppet module. 
+ 
 The puppet repository was then cloned onto my own computer using command:
 
 ```git clone https://github.com/sryyppo/puppet.git```.
@@ -31,9 +36,12 @@ Notice: Compiled catalog for sami.pp.htv.fi in environment production in 0.23 se
 Notice: /Stage[main]/Updatemodule/Package[mariadb-client-10.0]/ensure: ensure changed 'purged' to 'present'
 Notice: Finished catalog run in 22.49 seconds.`
 
-## b) Messut. Kirjoita lyhyt analyyttinen ja vertaileva arvio jostain tuotteesta, esityksestä tai yrityksestä IT PRO -messuilla. (Vaihtoehtoinen tehtävä, jos et pääse messuille: katso video samasta aiheesta Puppetista ja toisesta vastaavasta järjestelmästä (esim. Salt) ja kirjoita niistä analyyttinen ja vertaileva kirjoitus.
+## b) Messut. Kirjoita lyhyt analyyttinen ja vertaileva arvio jostain tuotteesta, esityksestä tai yrityksestä IT PRO -messuilla.
+(Vaihtoehtoinen tehtävä, jos et pääse messuille: katso video samasta aiheesta Puppetista ja toisesta vastaavasta järjestelmästä (esim. Salt)
+ja kirjoita niistä analyyttinen ja vertaileva kirjoitus.
 
-The video I viewed compares Puppet, saltStack, Ansible and Chef in scalability, ease of setup, availability, management and interoperability. Ansible was clearly the best system overall.
+The video I viewed compares Puppet, saltStack, Ansible and Chef in scalability, ease of setup, availability, management and interoperability.
+Ansible was clearly the best system overall.
 It seems Puppet and chef were lacking a bit in the terms of management and handling. Only Ansible is easy to install as the programs doesn't require special setup.
 Though based on a video it's hard to say which system I'd personally prefer. I will do some testing and update the results here later. 
 
