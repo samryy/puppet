@@ -6,10 +6,11 @@
 I started by this weeks homework assignements by creating a new repository called "Puppet". In this repository I will have two folders,one for notes
 (e.g. homeworks and other necessary notes) and an other for folder puppet modules.
 
-## UPDATE
+## UPDATE 9.4.2017
 
 All homework assignments are from now on in seperate folders. Each folder contains the assignment and the Puppet module. 
 
+##
  
 The puppet repository was then cloned onto my own computer using command:
 
