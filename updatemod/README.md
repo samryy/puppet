@@ -10,7 +10,6 @@ I started by this weeks homework assignements by creating a new repository calle
 
 All homework assignments are from now on in seperate folders. Each folder contains the assignment and the Puppet module. 
 
-===================
  
 The puppet repository was then cloned onto my own computer using command:
 
