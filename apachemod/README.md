@@ -59,7 +59,7 @@ class apache {
 
 I ran the Puppet module
 
-``` Sudo puppet apply -e 'class {"apache":}'
+``` Sudo puppet apply -e 'class {"apache":}' ```
 
 The installation was succesfull! 
 
