@@ -57,7 +57,11 @@ class apache {
 
 ```
 
-The installation was succesfull 
+I ran the Puppet module
+
+``` Sudo puppet apply -e 'class {"apache":}'
+
+The installation was succesfull! 
 
 ```
 Notice: Compiled catalog for sami in environment production in 0.49 seconds
@@ -75,5 +79,4 @@ Response was succesfull
 
 ```Sami's testsite```
 
-Sources: http://terokarvinen.com/2017/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-
-ict4tn011-11-%E2%80%93-loppukevat-2017-p2
+Sources: http://terokarvinen.com/2017/aikataulu-%E2%80%93-linuxin-keskitetty-hallinta-%E2%80%93-ict4tn011-11-%E2%80%93-loppukevat-2017-p2
