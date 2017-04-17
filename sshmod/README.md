@@ -8,33 +8,25 @@ Third week homework assignments
 
 In the older version I had all my modules in /puppet/modulename which had to be updated to be more useful.
 
-I created a new dir 'modules'.
-
-```mkdir modules```
-
-I moved all the modules into new modules folder. 
-
-```mv updatemod/ sshmod/ apachemod/ /home/sami/git/puppet/modules/```
-
-Now I can copy the current puppet tree from github to /etc/puppet/ and run all the puppet modules easily. 
+As I already had all the modules in github in their own directories in Puppet-repository, I didn't have to make changes to establish good pathing
+for the modules.  
 
 Current tree on github: 
 
 ```
-
+├── apachemod
+│   ├── manifests
+│   │   └── init.pp
+│   └── README.md
 ├── LICENSE
-├── modules
-│   ├── apachemod
-│   │   ├── manifests
-│   │   │   └── init.pp
-│   │   └── README.md
-│   ├── sshmod
-│   │   └── README.md
-│   └── updatemod
-│       ├── manifests
-│       │   └── init.pp
-│       └── README.md
-└── README.md
+├── README.md
+├── sshmod
+│   └── README.md
+└── updatemod
+    ├── manifests
+    │   └── init.pp
+    └── README.md
+
 
 ```
 
