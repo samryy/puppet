@@ -6,7 +6,7 @@ Third week homework assignments
 
 I created a module that installs openssh-server. 
 
-```
+```puppet
 class sshd {
 
         package { 'openssh-server':
