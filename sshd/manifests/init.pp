@@ -9,5 +9,10 @@ class sshd {
 		content => template('sshd/sshd_config.erb'),
 		require => Package ['openssh-server'],
 	}
+	service {'openssh-server':
+		ensure => 'running',
+		enable => 'true',
+		require => Package['openssh-server'],
+	}
 
 }
