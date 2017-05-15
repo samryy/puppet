@@ -61,5 +61,33 @@ class setupmod {
                 subscribe => File ['/var/www/html/index.html'],
         }
 	
+        package { $setup:
+                ensure => 'installed',
+                allowcdrom => 'true',
+
+        }
+
+        file { '/etc/apache2/mods-enabled/php7.conf':
+                ensure => 'present',
+                content => template('setupmod/php7.0.conf.erb')
+        }
+
+        file { '/var/www/html/index.html':
+                ensure => 'absent'
+        }
+
+
+        file { '/var/www/html/index.php':
+                ensure => 'present',
+                content => template('setupmod/index.php.erb'),
+                require => Package["apache2"],
+                notify => Service["apache2"]
+        }
+
+         service {apache2:
+                ensure => 'running',
+                enable => 'true',
+        }
+
 }
 
