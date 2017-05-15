@@ -2,7 +2,7 @@ class setupmod {
 
 ## Programs to install
 
-	$user = 'sami'
+	$user = 'ubuntu'
 	$setup = [ 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0' ]
 
 ## Check for updates
@@ -55,7 +55,7 @@ class setupmod {
 
         file { '/etc/apache2/mods-enabled/php7.0.conf':
                 ensure => 'present',
-                content => template('setupmod/php7.0.conf.erb')
+                content => template('setupmod/php.conf.erb')
         }
 
         file { '/var/www/html/index.php':
