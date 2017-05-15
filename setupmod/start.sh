@@ -6,5 +6,6 @@ cd /etc/puppet/
 sudo rm -rf /etc/puppet/modules/
 sudo git clone https://github.com/sryyppo/puppet
 sudo mv puppet modules
-sudo puppet apply --modulepath puppet/modules/ -e 'class {"setupmod":}'
+cd /modules/setupmod/manifests/
+sudo puppet apply -e 'class {"setupmod":}'
 
