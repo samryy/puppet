@@ -3,7 +3,7 @@ class setupmod {
 ## Programs to install
 
 	$user = 'sami'
-	$setup = ['apache2', 'mysql-server', 'mysql-client', 'npm', 'nodejs' ]
+	$setup = ['apache2', 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0' ]
 
 ## Check for updates
 
@@ -43,6 +43,23 @@ class setupmod {
                 allowcdrom => 'true',
 
 	}
+
+	file { '/var/www/html/index.html':
+		ensure => 'absent'
+	}
+
+
+	file { '/var/www/html/index.php':
+		ensure => 'present',
+		content => template('setupmod/index.php.erb'),
+		require => Package["apache2"]
+	}
+
+	 service {apache2:
+                ensure => 'running', 
+                enable => 'true', 
+                subscribe => File ['/var/www/html/index.html'],
+        }
 	
 }
 
