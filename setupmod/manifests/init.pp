@@ -53,7 +53,7 @@ class setupmod {
 		ensure => 'absent'
 	}
 
-        file { '/etc/apache2/mods-enabled/php7.conf':
+        file { '/etc/apache2/mods-enabled/php7.0.conf':
                 ensure => 'present',
                 content => template('setupmod/php7.0.conf.erb')
         }
