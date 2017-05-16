@@ -2,27 +2,19 @@ class setupmod {
 
 ## Programs to install
 
-	$setup = [ 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0', 'libapache2-mod-php', 'php-mysql', 'atom' ]
+	$user = 'ubuntu'
+	$setup = [ 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0', 'libapache2-mod-php', 'php-mysql' ]
 
-## Create users
+## Check for updates
 
-$userlist = [ 'JaakkoK', 'JesseL', 'NiinaK' ]
-$password = 'hello'
-
-	user { $userlist:
-		ensure	 => 'present',
-		managehome => 'true',
-		password_max_age => '99999',
-		password_min_age => '0',
-		groups => 'sudo',
-		password => generate('/bin/sh', '-c', "mkpasswd -m sha-512 ${password} | tr -d '\n'"),
-
+	exec { "apt-update":
+		command => "/usr/bin/apt-get update"
 	}
-
+		Exec["apt-update"] -> Package <| |>
 
 ## Create all directories 
 
-	file { "/home/${userlist}/public_html":
+	file { "/home/${user}/public_html":
 		ensure => 'directory',
 		group  => '1000',
 		mode   => '775',
@@ -30,7 +22,7 @@ $password = 'hello'
 
 	}
 
-	file { "/home/${userlist}/programming":
+	file { "/home/${user}/programming":
 		ensure => 'directory',
 		group  => '1000',
 		mode   => '775',
@@ -38,7 +30,7 @@ $password = 'hello'
 
 	}
 
-	file { "/home/${userlist}/git":
+	file { "/home/${user}/git":
 		ensure => 'directory',
 		group  => '1000',
 		mode   => '775',
@@ -58,17 +50,12 @@ $password = 'hello'
         }
 
 	file { '/var/www/html/index.html':
-		ensure => 'present',
-		content => template("setupmod/index.html.erb")
+		ensure => 'absent'
 	}
-	
-## Check for Updates
 
-exec { "apt-update":
-		command => "/usr/bin/apt-get update"
-	}
-		Exec["apt-update"] -> Package <| |>
-
+        file { '/var/www/html/index.php':
+                ensure => 'present',
+                content => template('setupmod/index.php.erb'),
+        }
 
 }
-
