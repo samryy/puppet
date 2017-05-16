@@ -50,12 +50,8 @@ class setupmod {
         }
 
 	file { '/var/www/html/index.html':
-		ensure => 'absent'
+		ensure => 'present',
+		content => template('setupmod/index.html.erb')
 	}
-
-        file { '/var/www/html/index.php':
-                ensure => 'present',
-                content => template('setupmod/index.php.erb'),
-        }
 
 }
