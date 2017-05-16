@@ -66,7 +66,7 @@ $password = 'hello'
 
 	file { '/var/www/html/index.html':
 		ensure => 'present',
-		content => templates('setupmod/testsite')
+		content => template("setupmod/index.html.erb")
 	}
 
 
