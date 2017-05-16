@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+        ServerName <%= @title %>.samiryyppo.com
+        ServerAlias www.<%= @title %>.samiryyppo.com
+        DocumentRoot /var/www/<%= @title %>/
+        <Directory /var/www/<%= @title %>/>
+                Require all granted
+        </Directory>
+</virtualHost>
