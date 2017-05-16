@@ -4,13 +4,6 @@ class setupmod {
 
 	$setup = [ 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0', 'libapache2-mod-php', 'php-mysql', 'atom' ]
 
-## Check for updates
-
-	exec { "apt-update":
-		command => "/usr/bin/apt-get update"
-	}
-		Exec["apt-update"] -> Package <| |>
-
 ## Create users
 
 $userlist = [ 'JaakkoK', 'JesseL', 'NiinaK' ]
@@ -66,8 +59,15 @@ $password = 'hello'
 
 	file { '/var/www/html/index.html':
 		ensure => 'present',
-		content => templates('setupmod/testsite')
+		content => template("setupmod/index.html.erb")
 	}
+	
+## Check for Updates
+
+exec { "apt-update":
+		command => "/usr/bin/apt-get update"
+	}
+		Exec["apt-update"] -> Package <| |>
 
 
 }
