@@ -18,4 +18,4 @@ Git clone files to /etc/puppet/
 
 Rename 'puppet' => 'modules'
 
-```sudo puppet apply -e 'class {"setupmod":}'
+```sudo puppet apply -e 'class {"setupmod":}```
