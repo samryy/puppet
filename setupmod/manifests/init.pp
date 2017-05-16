@@ -2,8 +2,7 @@ class setupmod {
 
 ## Programs to install
 
-	$user = 'ubuntu'
-	$setup = [ 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0', 'libapache2-mod-php', 'php-mysql' ]
+	$setup = [ 'mysql-server', 'mysql-client', 'npm', 'nodejs', 'php7.0', 'libapache2-mod-php', 'php-mysql', 'atom' ]
 
 ## Check for updates
 
@@ -12,9 +11,25 @@ class setupmod {
 	}
 		Exec["apt-update"] -> Package <| |>
 
+## Create users
+
+$userlist = [ 'JaakkoK', 'JesseL', 'NiinaK' ]
+$password = 'hello'
+
+	user { $userlist:
+		ensure	 => 'present',
+		managehome => 'true',
+		password_max_age => '99999',
+		password_min_age => '0',
+		groups => 'sudo',
+		password => generate('/bin/sh', '-c', "mkpasswd -m sha-512 ${password} | tr -d '\n'"),
+
+	}
+
+
 ## Create all directories 
 
-	file { "/home/${user}/public_html":
+	file { "/home/${userlist}/public_html":
 		ensure => 'directory',
 		group  => '1000',
 		mode   => '775',
@@ -22,7 +37,7 @@ class setupmod {
 
 	}
 
-	file { "/home/${user}/programming":
+	file { "/home/${userlist}/programming":
 		ensure => 'directory',
 		group  => '1000',
 		mode   => '775',
@@ -30,7 +45,7 @@ class setupmod {
 
 	}
 
-	file { "/home/${user}/git":
+	file { "/home/${userlist}/git":
 		ensure => 'directory',
 		group  => '1000',
 		mode   => '775',
@@ -50,18 +65,10 @@ class setupmod {
         }
 
 	file { '/var/www/html/index.html':
-		ensure => 'absent'
+		ensure => 'present',
+		content => templates('setupmod/testsite')
 	}
 
-        file { '/etc/apache2/mods-enabled/php7.0.conf':
-                ensure => 'present',
-                content => template('setupmod/php.conf.erb')
-        }
-
-        file { '/var/www/html/index.php':
-                ensure => 'present',
-                content => template('setupmod/index.php.erb'),
-        }
 
 }
 
