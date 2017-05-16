@@ -51,11 +51,6 @@ class setupmod {
                 ensure => 'installed', 
                 allowcdrom => 'true',
         }
-
-	file { '/var/www/html/index.html':
-		ensure => 'present',
-		content => template('setupmod/index.html.erb')
-	}
 	
 	define apachevhost {
 		file { "/etc/apache2/sites-enabled/${title}.conf":
